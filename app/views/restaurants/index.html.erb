@@ -1,9 +1,11 @@
 <div class="container">
   <h1>Restaurants list !</h1>
   <%= link_to "Create a new restaurant !", new_restaurant_path, class: "btn btn-primary" %>
-  <ul class="p-2">
-    <% @restaurants.each do |restaurant| %>
-      <li><%= link_to restaurant.name, restaurant %></li>
-    <% end %>
-  </ul>
+  <div>
+    <ul class="mt-3 list-group">
+      <% @restaurants.each do |restaurant| %>
+        <li class = "list-group-item"><%= link_to restaurant.name, restaurant %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
