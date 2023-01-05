@@ -1,8 +1,18 @@
 <div class="container">
   <h2><%= @restaurant.name %></h2>
-  <p><%= @restaurant.address %></p>
-  <p><%= @restaurant.phone_number %></p>
-  <p><%= @restaurant.category %></p>
+  <p>Address : <%= @restaurant.address %></p>
+  <p>Phone number : <%= @restaurant.phone_number %></p>
+  <p>Category : <%= @restaurant.category %></p>
   <%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-primary" %>
+  <%= link_to "Add a review !", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
   <%# ajouter ici un lien pour une nouvelle review %>
+    <% if @restaurant.reviews != [] %>
+      <p class="mt-3">Reviews for <%= @restaurant.name %></strong></p>
+        <ul class="list-group">
+          <% @restaurant.reviews.each do |review| %>
+            <li class="list-group-item"> Rating : <%= review.rating %> out of 5 <br>
+            <%= review.content %></li>
+          <% end %>
+        </ul>
+    <% end %>
 </div>
